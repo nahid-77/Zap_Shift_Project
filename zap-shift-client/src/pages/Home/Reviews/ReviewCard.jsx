@@ -10,7 +10,7 @@ const ReviewCard = ({ review }) => {
 
         {/* Quote Icon */}
         <div className="mb-5">
-          <FaQuoteRight className="text-3xl text-cyan-100" />
+          <FaQuoteRight className="text-3xl text-cyan-300" />
         </div>
 
         {/* Quote */}
