@@ -19,7 +19,7 @@ const Register = () => {
           (<p className="text-red-500">Email is required</p>)
           }
           <label className="label">Password</label>
-          <input type="password" className="input" {...register("password", {required: true, minLength: 6,})} placeholder="Password" />
+          <input type="password" className="input" {...register("password", {required: true, minLength: 6, pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/})} placeholder="Password" />
           {
             errors.password?.type === 'required' && 
           (<p className="text-red-500">Password is required</p>)
@@ -27,6 +27,10 @@ const Register = () => {
           {
             errors.password?.type === 'minLength' && 
           (<p className="text-red-500">Password must be at least 6 characters</p>)
+          }
+          {
+            errors.password?.type === 'pattern' && 
+          (<p className="text-red-500">Password must contain at least one uppercase letter, one lowercase letter, one number and one special character</p>)
           }
           <div>
             <a className="link link-hover">Forgot password?</a>
